@@ -1,0 +1,28 @@
+version: '2'
+services:
+  php:
+     image: phpmyadmin/phpmyadmin
+     links:
+       - mysql:db
+     depends_on:
+       - mysql
+
+  mysql:
+    image: k0st/alpine-mariadb
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=mypass 
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "81:80"
+    volumes:
+      - ./nginx/log:/var/log/nginx
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/files:/var/www/nginx:ro
+    depends_on:
+      - php
