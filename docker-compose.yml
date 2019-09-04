@@ -26,3 +26,5 @@ services:
       - ./nginx/files:/var/www/nginx:ro
     depends_on:
       - php
+     
+
