@@ -20,3 +20,4 @@ d1f32908c011        nginx:stable-alpine     "nginx -g 'daemon of…"   35 second
 Podemos posteriormente entrar entrar a http://localhost:81, las credenciales se enviaron en las variables de ambiente en el docker-compose myuser/mypass
 
 
+
