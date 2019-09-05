@@ -1,5 +1,5 @@
 FROM alpine
-...
+
 RUN mkdir /etc/periodic/midnight
 ADD ./scripts/compute_leaderboards /etc/periodic/midnight/compute_leaderboards
 RUN chmod +x /etc/periodic/midnight/compute_leaderboards
